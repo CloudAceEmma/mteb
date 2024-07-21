@@ -70,6 +70,7 @@ class GoogleWrapper:
     ) -> np.ndarray:
         from vertexai.language_models import TextEmbeddingInput
 
+        self._embed_dim = 768
         kwargs = (
             dict(output_dimensionality=self._embed_dim)
             if self._embed_dim
@@ -150,7 +151,7 @@ text_embedding_004= ModelMeta(
     languages=["eng_Latn"],  # supported languages not specified
     loader=partial(GoogleWrapper, model_name="text-embedding-004"),
     max_tokens=20000,
-    embed_dim=256,
+    embed_dim=768,
     open_source=False,
 )
 text_multilingual_embedding_002= ModelMeta(
